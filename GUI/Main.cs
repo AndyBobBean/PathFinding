@@ -37,7 +37,8 @@
 
             CurrentAlgorithm = -1;
             MazeDrawer = new MazeDrawer(pbMaze, workingSeed);
-            Algorithms = new AlgorithmBase[] { new AStar(MazeDrawer.Grid), new Dijkstra(MazeDrawer.Grid) };
+            Algorithms = new AlgorithmBase[] { new AStar(MazeDrawer.Grid), new Dijkstra(MazeDrawer.Grid), new DepthFirst(MazeDrawer.Grid) };
+            //Algorithms = new AlgorithmBase[] { new DepthFirst(MazeDrawer.Grid) };
             Text = @"Path Finding " + MazeDrawer.Seed;
             MazeDrawer.Draw();
         }

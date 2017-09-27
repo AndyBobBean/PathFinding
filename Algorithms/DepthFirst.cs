@@ -7,6 +7,7 @@
     public class DepthFirst : AlgorithmBase
     {
         readonly Stack<Node> _stack = new Stack<Node>();
+        private List<Node> _closed = new List<Node>();
         private readonly Coord _destination;
         private int _id;
         private Node _currentNode;
@@ -23,87 +24,56 @@
 
         public override SearchDetails GetPathTick()
         {
-            /*
-             * https://channel9.msdn.com/coding4fun/blog/Getting-lost-and-found-with-the-C-Maze-Generator-and-Solver
-            */
-            var visited = new HashSet<Node>();
-
-            while (_stack.Count > 0)
+            _currentNode = _stack.Peek();
+            if (CoordsMatch(_currentNode.Coord, _destination))
             {
-                _currentNode = _stack.Pop();
+                Path = new List<Coord>();
+                foreach (var item in _stack)
+                    Path.Add(item.Coord);
 
-                if (visited.Contains(_currentNode))
-                    continue;
+                Path.Reverse();
 
-                visited.Add(_currentNode);
+                return GetSearchDetails();
+            }
 
-                foreach (var neighbour in GetNeighbours(_currentNode))
-                {
-                    if (!visited.Any(x => x.Coord.X == neighbour.X && x.Coord.Y == neighbour.Y))
-                    {
-                        _stack.Push(new Node(_id++, null, neighbour.X, neighbour.Y, 0, 0));
-                    }
-                }
+            var neighbours = GetNeighbours(_currentNode).Where(x => !AlreadyVisited(new Coord(x.X, x.Y))).ToArray();
+            if (neighbours.Any())
+            {
+                foreach (var neighbour in neighbours)
+                    Grid.SetCell(neighbour.X, neighbour.Y, Enums.CellType.Open);
+
+                var next = neighbours.First();
+                var newNode = new Node(_id++, null, next.X, next.Y, 0, 0);
+                _stack.Push(newNode);
+                Grid.SetCell(newNode.Coord.X, newNode.Coord.Y, Enums.CellType.Current);
+            }
+            else
+            {
+                var abandonedCell = _stack.Pop();
+                Grid.SetCell(abandonedCell.Coord.X, abandonedCell.Coord.Y, Enums.CellType.Closed);
+                _closed.Add(abandonedCell);
             }
 
             return GetSearchDetails();
         }
 
-        protected override SearchDetails GetSearchDetails()
+        private bool AlreadyVisited(Coord coord)
         {
-            throw new System.NotImplementedException();
+            return _stack.Any(x => CoordsMatch(x.Coord, coord)) || _closed.Any(x => CoordsMatch(x.Coord, coord));
         }
 
-        /*
-         *         private int time; 
-        private int[] pi; 
- 
-        private void DFSVisit(Node u) 
-        { 
-            u.Color = Colors.GRAY; 
-            u.Discovery = ++time; 
- 
-            if (u.Adjacency != null) 
-            { 
-                for (int i = 0; i < u.Adjacency.Count; i++) 
-                { 
-                    Node v = u.Adjacency[i]; 
- 
-                    if (v.Color == Colors.WHITE) 
-                    { 
-                        pi[v.Id] = u.Id; 
-                        DFSVisit(v); 
-                    } 
-                } 
- 
-            } 
- 
-            u.Color = Colors.BLACK; 
-            u.Finish = ++time; 
-        } 
- 
-        public void DFS(List<Node> G) 
-        { 
-            pi = new int[G.Count]; 
- 
-            for (int i = 0; i < G.Count; i++) 
-            { 
-                Node u = G[i]; 
- 
-                u.Color = Colors.WHITE; 
-                pi[u.Id] = -1; 
-            } 
- 
-            time = 0; 
- 
-            for (int i = 0; i < G.Count; i++) 
-            { 
-                Node u = G[i]; 
- 
-                if (u.Color == Colors.WHITE) 
-                    DFSVisit(u); 
-            } 
+        protected override SearchDetails GetSearchDetails()
+        {
+            return new SearchDetails
+            {
+                Path = Path?.ToArray(),
+                LastNode = _currentNode,
+                DistanceOfCurrentNode = _currentNode == null ? 0 : GetManhattenDistance(_currentNode.Coord, _destination),
+                OpenListSize = _stack.Count,
+                ClosedListSize = _closed.Count,
+                UnexploredListSize = Grid.GetCountOfType(Enums.CellType.Empty),
+                Operations = Operations++
+            };
         }
-        */
     }
 }

@@ -41,5 +41,5 @@
         {
             return Math.Abs(origin.X - destination.X) + Math.Abs(origin.Y - destination.Y);
         }
-}
+    }
 }

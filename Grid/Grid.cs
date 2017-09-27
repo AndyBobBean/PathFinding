@@ -66,6 +66,7 @@
 
             SetStartAndEnd();
         }
+
         public int GetCountOfType(CellType type)
         {
             var total = 0;
@@ -75,6 +76,11 @@
             }
 
             return total;
+        }
+
+        public int GetTraversableCells()
+        {
+            return GetCountOfType(CellType.Open) + GetCountOfType(CellType.A) + GetCountOfType(CellType.B);
         }
 
         private void SetStartAndEnd()
