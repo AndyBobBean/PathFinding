@@ -8,14 +8,24 @@
     public abstract class AlgorithmBase
     {
         protected readonly Grid Grid;
+        protected readonly List<Node> Closed;
         protected List<Coord> Path;
+        protected readonly Coord Origin;
+        protected readonly Coord Destination;
+        protected int Id;
+        protected Node CurrentNode;
         protected int Operations;
         public string AlgorithmName;
+
 
         protected AlgorithmBase(Grid grid)
         {
             Grid = grid;
+            Closed = new List<Node>();
+            Origin = Grid.GetStart().Coord;
+            Destination = Grid.GetEnd().Coord;
             Operations = 0;
+            Id = 1;
         }
 
         public abstract SearchDetails GetPathTick();

@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Helpers.cs" />
+    <Compile Include="Classes\LabelCollection.cs" />
     <Compile Include="Classes\MazeDrawer.cs" />
     <Compile Include="Classes\Sounds.cs" />
     <Compile Include="Main.cs">

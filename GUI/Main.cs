@@ -5,12 +5,14 @@
     using System.Windows.Forms;
     using Algorithms;
     using Grid;
+    using System.Linq;
 
     public partial class Main : Form
     {
         public MazeDrawer MazeDrawer;
         public AlgorithmBase[] Algorithms;
         public int CurrentAlgorithm;
+        public LabelCollection[] Labels = new LabelCollection[4];
         public Sounds SoundManager;
         public System.Timers.Timer PathTimer;
         public const int Delay = 5;
@@ -23,6 +25,27 @@
             PathTimer.Elapsed += PathTimer_Elapsed;
             SoundManager = new Sounds(Properties.Settings.Default.EnableSounds);
             SoundManager.LoadSounds();
+
+            Labels[0] = new LabelCollection
+            {
+                AlgorithmId = 0,
+                Labels = new Label[] { lblAlgorithm, lblDijkstraOperations, lblDijkstraUnexplored, lblDijkstraOpen, lblDijkstraClosed, lblDijkstraPathLength }
+            };
+            Labels[1] = new LabelCollection
+            {
+                AlgorithmId = 1,
+                Labels = new Label[] { lblAlgorithm, lblAStarOperations, lblAStarUnexplored, lblAStarOpen, lblAStarClosed, lblAStarPathLength }
+            };
+            Labels[2] = new LabelCollection
+            {
+                AlgorithmId = 2,
+                Labels = new Label[] { lblAlgorithm, lblBreadthFirstOperations, lblBreadthFirstUnexplored, lblBreadthFirstOpen, lblBreadthFirstClosed, lblBreadthFirstPathLength }
+            };
+            Labels[3] = new LabelCollection
+            {
+                AlgorithmId = 3,
+                Labels = new Label[] { lblAlgorithm, lblDepthFirstOperations, lblDepthFirstUnexplored, lblDepthFirstOpen, lblDepthFirstClosed, lblDepthFirstPathLength }
+            };
 
             InitialiseMaze();
         }
@@ -37,8 +60,7 @@
 
             CurrentAlgorithm = -1;
             MazeDrawer = new MazeDrawer(pbMaze, workingSeed);
-            Algorithms = new AlgorithmBase[] { new Dijkstra(MazeDrawer.Grid), new AStar(MazeDrawer.Grid), new DepthFirst(MazeDrawer.Grid) };
-            //Algorithms = new AlgorithmBase[] { new DepthFirst(MazeDrawer.Grid) };
+            Algorithms = new AlgorithmBase[] { new Dijkstra(MazeDrawer.Grid), new AStar(MazeDrawer.Grid), new BreadthFirst(MazeDrawer.Grid), new DepthFirst(MazeDrawer.Grid) };
             Text = @"Path Finding " + MazeDrawer.Seed;
             MazeDrawer.Draw();
         }
@@ -94,12 +116,14 @@
 
         private void StatsUpdate(SearchDetails details)
         {
-            lblAlgorithm.BeginInvoke((MethodInvoker)delegate { lblAlgorithm.Text = @"Algorithm: " + Algorithms[CurrentAlgorithm].AlgorithmName; });
-            lblOperations.BeginInvoke((MethodInvoker)delegate { lblOperations.Text = Helpers.FormatStats("Operations", details.Operations); });
-            lblUnexplored.BeginInvoke((MethodInvoker)delegate { lblUnexplored.Text = Helpers.FormatStats("Unexplored", details.UnexploredListSize); });
-            lblOpen.BeginInvoke((MethodInvoker)delegate { lblOpen.Text = Helpers.FormatStats("Open List Size", details.OpenListSize); });
-            lblClosed.BeginInvoke((MethodInvoker)delegate { lblClosed.Text = Helpers.FormatStats("Closed List Size", details.ClosedListSize); });
-            lblPath.BeginInvoke((MethodInvoker)delegate { lblPath.Text = Helpers.FormatStats("Path Length", details.PathFound ? details.Path.Length : (int?)null); });
+            var labelCollection = Labels.First(x => x.AlgorithmId == CurrentAlgorithm);
+
+            labelCollection.Labels[0].BeginInvoke((MethodInvoker)delegate { labelCollection.Labels[0].Text = @"Algorithm: " + Algorithms[CurrentAlgorithm].AlgorithmName; });
+            labelCollection.Labels[1].BeginInvoke((MethodInvoker)delegate { labelCollection.Labels[1].Text = details.Operations.ToString(); });
+            labelCollection.Labels[2].BeginInvoke((MethodInvoker)delegate { labelCollection.Labels[2].Text = details.UnexploredListSize.ToString(); });
+            labelCollection.Labels[3].BeginInvoke((MethodInvoker)delegate { labelCollection.Labels[3].Text = details.OpenListSize.ToString(); });
+            labelCollection.Labels[4].BeginInvoke((MethodInvoker)delegate { labelCollection.Labels[4].Text = details.ClosedListSize.ToString(); });
+            labelCollection.Labels[5].BeginInvoke((MethodInvoker)delegate { labelCollection.Labels[5].Text = details.PathFound ? details.Path.Length.ToString() : "?"; });
         }
 
         private void btnGo_Click(object sender, EventArgs e)

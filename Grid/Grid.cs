@@ -67,6 +67,11 @@
             SetStartAndEnd();
         }
 
+        public void SetCell(Coord coord, CellType type)
+        {
+            SetCell(coord.X, coord.Y, type);
+        }
+
         public int GetCountOfType(CellType type)
         {
             var total = 0;
