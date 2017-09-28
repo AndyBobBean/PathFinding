@@ -37,7 +37,7 @@
 
             CurrentAlgorithm = -1;
             MazeDrawer = new MazeDrawer(pbMaze, workingSeed);
-            Algorithms = new AlgorithmBase[] { new AStar(MazeDrawer.Grid), new Dijkstra(MazeDrawer.Grid), new DepthFirst(MazeDrawer.Grid) };
+            Algorithms = new AlgorithmBase[] { new Dijkstra(MazeDrawer.Grid), new AStar(MazeDrawer.Grid), new DepthFirst(MazeDrawer.Grid) };
             //Algorithms = new AlgorithmBase[] { new DepthFirst(MazeDrawer.Grid) };
             Text = @"Path Finding " + MazeDrawer.Seed;
             MazeDrawer.Draw();
@@ -46,11 +46,11 @@
         private int FindWorkingSeed()
         {
             var testMazeDrawer = new MazeDrawer(pbMaze);
-            var testAStar = new AStar(testMazeDrawer.Grid);
-            var progress = testAStar.GetPathTick();
+            var testPathFinder = new DepthFirst(testMazeDrawer.Grid);
+            var progress = testPathFinder.GetPathTick();
             while (progress.PathPossible && !progress.PathFound)
             {
-                progress = testAStar.GetPathTick();
+                progress = testPathFinder.GetPathTick();
             }
 
             return progress.PathFound ? testMazeDrawer.Seed : 0;

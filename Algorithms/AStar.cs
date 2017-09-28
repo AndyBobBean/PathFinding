@@ -32,7 +32,7 @@
                 if (!_openList.Any()) return GetSearchDetails();
                 
                 // Take the current node off the open list to be examined
-                _currentNode = _openList.OrderBy(x => x.F).First();
+                _currentNode = _openList.OrderBy(x => x.F).ThenBy(x => x.H).First();
 
                 // Move it to the closed list so it doesn't get examined again
                 _openList.Remove(_currentNode);
