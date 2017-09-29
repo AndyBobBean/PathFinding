@@ -87,7 +87,7 @@
             this.btnGo.TabIndex = 31;
             this.btnGo.Text = "Go";
             this.btnGo.UseVisualStyleBackColor = true;
-            this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
+            this.btnGo.Click += new System.EventHandler(this.BtnGo_Click);
             // 
             // lblDijkstra
             // 
@@ -138,7 +138,7 @@
             this.btnMaze.TabIndex = 30;
             this.btnMaze.Text = "Generate";
             this.btnMaze.UseVisualStyleBackColor = true;
-            this.btnMaze.Click += new System.EventHandler(this.btnMaze_Click);
+            this.btnMaze.Click += new System.EventHandler(this.BtnMaze_Click);
             // 
             // lblOperations
             // 

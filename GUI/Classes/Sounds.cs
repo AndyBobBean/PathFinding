@@ -5,9 +5,9 @@
 
     public class Sounds
     {
-        public const int TotalSounds = 50;
-        public Stream[] Sound = new Stream[TotalSounds + 1];
-        public System.Media.SoundPlayer Player = new System.Media.SoundPlayer();
+        private const int TotalSounds = 50;
+        private readonly Stream[] _sound = new Stream[TotalSounds + 1];
+        private readonly System.Media.SoundPlayer _player = new System.Media.SoundPlayer();
         private readonly bool _enableSound;
 
         public Sounds(bool enableSound)
@@ -19,9 +19,9 @@
         {
             for (var i = 0; i < TotalSounds; i++)
             {
-                Sound[i] = File.OpenRead($"Sounds\\Beep{i}.wav");
+                _sound[i] = File.OpenRead($"Sounds\\Beep{i}.wav");
             }
-            Sound[TotalSounds] = File.OpenRead("Sounds\\Ding.wav");
+            _sound[TotalSounds] = File.OpenRead("Sounds\\Ding.wav");
         }
 
         private void CreateSoundFiles()
@@ -71,9 +71,9 @@
             writer.Write(data);
             writer.Write(dataChunkSize);
             //double aNatural = 220.0;
-            double ampl = 10000;
-            var perfect = 1.5;
-            var concert = 1.498307077;
+            const double ampl = 10000;
+            const double perfect = 1.5;
+            const double concert = 1.498307077;
             var freq = frequency * perfect;
             for (var i = 0; i < samples; i++)
             {
@@ -109,10 +109,10 @@
             if (step == 0 || !_enableSound) return;
             if (step > TotalSounds) step = TotalSounds;
 
-            Player.Stop();
-            Player.Stream = Sound[step];
-            Player.Stream.Position = 0;
-            Player.PlaySync();
+            _player.Stop();
+            _player.Stream = _sound[step];
+            _player.Stream.Position = 0;
+            _player.PlaySync();
         }
 
     }

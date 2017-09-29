@@ -6,8 +6,8 @@
 
     public class BreadthFirst : AlgorithmBase
     {
-        Queue<Node> _q = new Queue<Node>();
-        private bool _destinationFound = false;
+        private readonly Queue<Node> _q = new Queue<Node>();
+        private bool _destinationFound;
 
         public BreadthFirst(Grid grid) : base (grid)
         {
@@ -34,11 +34,10 @@
                     _q.Enqueue(neighbourNode);
                     Grid.SetCell(neighbour, Enums.CellType.Open);
 
-                    if (CoordsMatch(neighbour, Destination))
-                    {
-                        Closed.Add(neighbourNode);
-                        _destinationFound = true;
-                    }
+                    if (!CoordsMatch(neighbour, Destination)) continue;
+
+                    Closed.Add(neighbourNode);
+                    _destinationFound = true;
                 }
             }
             else
@@ -50,7 +49,7 @@
                 {
                     Path.Add(step.Coord);
                     step = Closed.First(x => x.Id == step.ParentId);
-                };
+                }
 
                 Path.Add(Origin);
                 Path.Reverse();
@@ -73,7 +72,7 @@
                 DistanceOfCurrentNode = CurrentNode == null ? 0 : GetManhattenDistance(CurrentNode.Coord, Destination),
                 OpenListSize = _q.Count,
                 ClosedListSize = Closed.Count,
-                UnexploredListSize = Grid.GetCountOfType(Enums.CellType.Open),
+                UnexploredListSize = Grid.GetCountOfType(Enums.CellType.Empty),
                 Operations = Operations++
             };
         }
