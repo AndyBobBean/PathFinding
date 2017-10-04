@@ -92,9 +92,9 @@
             // lblDijkstra
             // 
             this.lblDijkstra.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDijkstra.Location = new System.Drawing.Point(6, 503);
+            this.lblDijkstra.Location = new System.Drawing.Point(12, 503);
             this.lblDijkstra.Name = "lblDijkstra";
-            this.lblDijkstra.Size = new System.Drawing.Size(195, 24);
+            this.lblDijkstra.Size = new System.Drawing.Size(174, 24);
             this.lblDijkstra.TabIndex = 6;
             this.lblDijkstra.Text = "Dijkstra:";
             this.lblDijkstra.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -102,9 +102,9 @@
             // lblAStar
             // 
             this.lblAStar.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAStar.Location = new System.Drawing.Point(6, 527);
+            this.lblAStar.Location = new System.Drawing.Point(12, 527);
             this.lblAStar.Name = "lblAStar";
-            this.lblAStar.Size = new System.Drawing.Size(195, 24);
+            this.lblAStar.Size = new System.Drawing.Size(174, 24);
             this.lblAStar.TabIndex = 12;
             this.lblAStar.Text = "A*:";
             this.lblAStar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -112,9 +112,9 @@
             // lblBreadthFirst
             // 
             this.lblBreadthFirst.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBreadthFirst.Location = new System.Drawing.Point(6, 551);
+            this.lblBreadthFirst.Location = new System.Drawing.Point(8, 551);
             this.lblBreadthFirst.Name = "lblBreadthFirst";
-            this.lblBreadthFirst.Size = new System.Drawing.Size(195, 24);
+            this.lblBreadthFirst.Size = new System.Drawing.Size(178, 24);
             this.lblBreadthFirst.TabIndex = 18;
             this.lblBreadthFirst.Text = "Breadth-First:";
             this.lblBreadthFirst.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -122,9 +122,9 @@
             // lblDepthFirst
             // 
             this.lblDepthFirst.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepthFirst.Location = new System.Drawing.Point(6, 575);
+            this.lblDepthFirst.Location = new System.Drawing.Point(12, 575);
             this.lblDepthFirst.Name = "lblDepthFirst";
-            this.lblDepthFirst.Size = new System.Drawing.Size(195, 24);
+            this.lblDepthFirst.Size = new System.Drawing.Size(174, 24);
             this.lblDepthFirst.TabIndex = 24;
             this.lblDepthFirst.Text = "Depth-First:";
             this.lblDepthFirst.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -144,7 +144,7 @@
             // 
             this.lblOperations.AutoSize = true;
             this.lblOperations.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOperations.Location = new System.Drawing.Point(207, 479);
+            this.lblOperations.Location = new System.Drawing.Point(182, 479);
             this.lblOperations.Name = "lblOperations";
             this.lblOperations.Size = new System.Drawing.Size(130, 24);
             this.lblOperations.TabIndex = 1;
@@ -164,7 +164,7 @@
             // 
             this.lblUnexplored.AutoSize = true;
             this.lblUnexplored.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUnexplored.Location = new System.Drawing.Point(367, 479);
+            this.lblUnexplored.Location = new System.Drawing.Point(322, 479);
             this.lblUnexplored.Name = "lblUnexplored";
             this.lblUnexplored.Size = new System.Drawing.Size(130, 24);
             this.lblUnexplored.TabIndex = 2;
@@ -174,7 +174,7 @@
             // 
             this.lblOpen.AutoSize = true;
             this.lblOpen.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOpen.Location = new System.Drawing.Point(532, 479);
+            this.lblOpen.Location = new System.Drawing.Point(490, 479);
             this.lblOpen.Name = "lblOpen";
             this.lblOpen.Size = new System.Drawing.Size(58, 24);
             this.lblOpen.TabIndex = 3;
@@ -184,7 +184,7 @@
             // 
             this.lblClosed.AutoSize = true;
             this.lblClosed.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClosed.Location = new System.Drawing.Point(629, 479);
+            this.lblClosed.Location = new System.Drawing.Point(577, 479);
             this.lblClosed.Name = "lblClosed";
             this.lblClosed.Size = new System.Drawing.Size(82, 24);
             this.lblClosed.TabIndex = 4;
@@ -194,16 +194,16 @@
             // 
             this.lblPathLength.AutoSize = true;
             this.lblPathLength.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPathLength.Location = new System.Drawing.Point(753, 479);
+            this.lblPathLength.Location = new System.Drawing.Point(688, 479);
             this.lblPathLength.Name = "lblPathLength";
-            this.lblPathLength.Size = new System.Drawing.Size(142, 24);
+            this.lblPathLength.Size = new System.Drawing.Size(202, 24);
             this.lblPathLength.TabIndex = 5;
-            this.lblPathLength.Text = "Path Length";
+            this.lblPathLength.Text = "Path Length/Cost";
             // 
             // lblDijkstraOperations
             // 
             this.lblDijkstraOperations.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDijkstraOperations.Location = new System.Drawing.Point(207, 503);
+            this.lblDijkstraOperations.Location = new System.Drawing.Point(182, 503);
             this.lblDijkstraOperations.Name = "lblDijkstraOperations";
             this.lblDijkstraOperations.Size = new System.Drawing.Size(130, 24);
             this.lblDijkstraOperations.TabIndex = 7;
@@ -213,7 +213,7 @@
             // lblDijkstraUnexplored
             // 
             this.lblDijkstraUnexplored.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDijkstraUnexplored.Location = new System.Drawing.Point(367, 503);
+            this.lblDijkstraUnexplored.Location = new System.Drawing.Point(322, 503);
             this.lblDijkstraUnexplored.Name = "lblDijkstraUnexplored";
             this.lblDijkstraUnexplored.Size = new System.Drawing.Size(130, 24);
             this.lblDijkstraUnexplored.TabIndex = 8;
@@ -223,7 +223,7 @@
             // lblDijkstraOpen
             // 
             this.lblDijkstraOpen.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDijkstraOpen.Location = new System.Drawing.Point(519, 503);
+            this.lblDijkstraOpen.Location = new System.Drawing.Point(477, 503);
             this.lblDijkstraOpen.Name = "lblDijkstraOpen";
             this.lblDijkstraOpen.Size = new System.Drawing.Size(84, 24);
             this.lblDijkstraOpen.TabIndex = 9;
@@ -233,7 +233,7 @@
             // lblDijkstraClosed
             // 
             this.lblDijkstraClosed.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDijkstraClosed.Location = new System.Drawing.Point(633, 503);
+            this.lblDijkstraClosed.Location = new System.Drawing.Point(581, 503);
             this.lblDijkstraClosed.Name = "lblDijkstraClosed";
             this.lblDijkstraClosed.Size = new System.Drawing.Size(78, 24);
             this.lblDijkstraClosed.TabIndex = 10;
@@ -243,27 +243,27 @@
             // lblDijkstraPathLength
             // 
             this.lblDijkstraPathLength.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDijkstraPathLength.Location = new System.Drawing.Point(757, 503);
+            this.lblDijkstraPathLength.Location = new System.Drawing.Point(717, 503);
             this.lblDijkstraPathLength.Name = "lblDijkstraPathLength";
             this.lblDijkstraPathLength.Size = new System.Drawing.Size(133, 24);
             this.lblDijkstraPathLength.TabIndex = 11;
-            this.lblDijkstraPathLength.Text = "?";
+            this.lblDijkstraPathLength.Text = "?/?";
             this.lblDijkstraPathLength.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblAStarPathLength
             // 
             this.lblAStarPathLength.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAStarPathLength.Location = new System.Drawing.Point(757, 527);
+            this.lblAStarPathLength.Location = new System.Drawing.Point(717, 527);
             this.lblAStarPathLength.Name = "lblAStarPathLength";
             this.lblAStarPathLength.Size = new System.Drawing.Size(133, 24);
             this.lblAStarPathLength.TabIndex = 17;
-            this.lblAStarPathLength.Text = "?";
+            this.lblAStarPathLength.Text = "?/?";
             this.lblAStarPathLength.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblAStarClosed
             // 
             this.lblAStarClosed.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAStarClosed.Location = new System.Drawing.Point(633, 527);
+            this.lblAStarClosed.Location = new System.Drawing.Point(581, 527);
             this.lblAStarClosed.Name = "lblAStarClosed";
             this.lblAStarClosed.Size = new System.Drawing.Size(78, 24);
             this.lblAStarClosed.TabIndex = 16;
@@ -273,7 +273,7 @@
             // lblAStarOpen
             // 
             this.lblAStarOpen.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAStarOpen.Location = new System.Drawing.Point(519, 527);
+            this.lblAStarOpen.Location = new System.Drawing.Point(477, 527);
             this.lblAStarOpen.Name = "lblAStarOpen";
             this.lblAStarOpen.Size = new System.Drawing.Size(84, 24);
             this.lblAStarOpen.TabIndex = 15;
@@ -283,7 +283,7 @@
             // lblAStarUnexplored
             // 
             this.lblAStarUnexplored.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAStarUnexplored.Location = new System.Drawing.Point(367, 527);
+            this.lblAStarUnexplored.Location = new System.Drawing.Point(322, 527);
             this.lblAStarUnexplored.Name = "lblAStarUnexplored";
             this.lblAStarUnexplored.Size = new System.Drawing.Size(130, 24);
             this.lblAStarUnexplored.TabIndex = 14;
@@ -293,7 +293,7 @@
             // lblAStarOperations
             // 
             this.lblAStarOperations.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAStarOperations.Location = new System.Drawing.Point(207, 527);
+            this.lblAStarOperations.Location = new System.Drawing.Point(182, 527);
             this.lblAStarOperations.Name = "lblAStarOperations";
             this.lblAStarOperations.Size = new System.Drawing.Size(130, 24);
             this.lblAStarOperations.TabIndex = 13;
@@ -303,17 +303,17 @@
             // lblBreadthFirstPathLength
             // 
             this.lblBreadthFirstPathLength.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBreadthFirstPathLength.Location = new System.Drawing.Point(757, 551);
+            this.lblBreadthFirstPathLength.Location = new System.Drawing.Point(717, 551);
             this.lblBreadthFirstPathLength.Name = "lblBreadthFirstPathLength";
             this.lblBreadthFirstPathLength.Size = new System.Drawing.Size(133, 24);
             this.lblBreadthFirstPathLength.TabIndex = 23;
-            this.lblBreadthFirstPathLength.Text = "?";
+            this.lblBreadthFirstPathLength.Text = "?/?";
             this.lblBreadthFirstPathLength.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblBreadthFirstClosed
             // 
             this.lblBreadthFirstClosed.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBreadthFirstClosed.Location = new System.Drawing.Point(633, 551);
+            this.lblBreadthFirstClosed.Location = new System.Drawing.Point(581, 551);
             this.lblBreadthFirstClosed.Name = "lblBreadthFirstClosed";
             this.lblBreadthFirstClosed.Size = new System.Drawing.Size(78, 24);
             this.lblBreadthFirstClosed.TabIndex = 22;
@@ -323,7 +323,7 @@
             // lblBreadthFirstOpen
             // 
             this.lblBreadthFirstOpen.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBreadthFirstOpen.Location = new System.Drawing.Point(519, 551);
+            this.lblBreadthFirstOpen.Location = new System.Drawing.Point(477, 551);
             this.lblBreadthFirstOpen.Name = "lblBreadthFirstOpen";
             this.lblBreadthFirstOpen.Size = new System.Drawing.Size(84, 24);
             this.lblBreadthFirstOpen.TabIndex = 21;
@@ -333,7 +333,7 @@
             // lblBreadthFirstUnexplored
             // 
             this.lblBreadthFirstUnexplored.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBreadthFirstUnexplored.Location = new System.Drawing.Point(367, 551);
+            this.lblBreadthFirstUnexplored.Location = new System.Drawing.Point(322, 551);
             this.lblBreadthFirstUnexplored.Name = "lblBreadthFirstUnexplored";
             this.lblBreadthFirstUnexplored.Size = new System.Drawing.Size(130, 24);
             this.lblBreadthFirstUnexplored.TabIndex = 20;
@@ -343,7 +343,7 @@
             // lblBreadthFirstOperations
             // 
             this.lblBreadthFirstOperations.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBreadthFirstOperations.Location = new System.Drawing.Point(207, 551);
+            this.lblBreadthFirstOperations.Location = new System.Drawing.Point(182, 551);
             this.lblBreadthFirstOperations.Name = "lblBreadthFirstOperations";
             this.lblBreadthFirstOperations.Size = new System.Drawing.Size(130, 24);
             this.lblBreadthFirstOperations.TabIndex = 19;
@@ -353,17 +353,17 @@
             // lblDepthFirstPathLength
             // 
             this.lblDepthFirstPathLength.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepthFirstPathLength.Location = new System.Drawing.Point(757, 575);
+            this.lblDepthFirstPathLength.Location = new System.Drawing.Point(717, 575);
             this.lblDepthFirstPathLength.Name = "lblDepthFirstPathLength";
             this.lblDepthFirstPathLength.Size = new System.Drawing.Size(133, 24);
             this.lblDepthFirstPathLength.TabIndex = 29;
-            this.lblDepthFirstPathLength.Text = "?";
+            this.lblDepthFirstPathLength.Text = "?/?";
             this.lblDepthFirstPathLength.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDepthFirstClosed
             // 
             this.lblDepthFirstClosed.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepthFirstClosed.Location = new System.Drawing.Point(633, 575);
+            this.lblDepthFirstClosed.Location = new System.Drawing.Point(581, 575);
             this.lblDepthFirstClosed.Name = "lblDepthFirstClosed";
             this.lblDepthFirstClosed.Size = new System.Drawing.Size(78, 24);
             this.lblDepthFirstClosed.TabIndex = 28;
@@ -373,7 +373,7 @@
             // lblDepthFirstOpen
             // 
             this.lblDepthFirstOpen.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepthFirstOpen.Location = new System.Drawing.Point(519, 575);
+            this.lblDepthFirstOpen.Location = new System.Drawing.Point(477, 575);
             this.lblDepthFirstOpen.Name = "lblDepthFirstOpen";
             this.lblDepthFirstOpen.Size = new System.Drawing.Size(84, 24);
             this.lblDepthFirstOpen.TabIndex = 27;
@@ -383,7 +383,7 @@
             // lblDepthFirstUnexplored
             // 
             this.lblDepthFirstUnexplored.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepthFirstUnexplored.Location = new System.Drawing.Point(367, 575);
+            this.lblDepthFirstUnexplored.Location = new System.Drawing.Point(322, 575);
             this.lblDepthFirstUnexplored.Name = "lblDepthFirstUnexplored";
             this.lblDepthFirstUnexplored.Size = new System.Drawing.Size(130, 24);
             this.lblDepthFirstUnexplored.TabIndex = 26;
@@ -393,7 +393,7 @@
             // lblDepthFirstOperations
             // 
             this.lblDepthFirstOperations.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepthFirstOperations.Location = new System.Drawing.Point(207, 575);
+            this.lblDepthFirstOperations.Location = new System.Drawing.Point(182, 575);
             this.lblDepthFirstOperations.Name = "lblDepthFirstOperations";
             this.lblDepthFirstOperations.Size = new System.Drawing.Size(130, 24);
             this.lblDepthFirstOperations.TabIndex = 25;

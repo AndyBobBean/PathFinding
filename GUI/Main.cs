@@ -123,7 +123,7 @@
             labelCollection.Labels[2].BeginInvoke((MethodInvoker)delegate { labelCollection.Labels[2].Text = details.UnexploredListSize.ToString(); });
             labelCollection.Labels[3].BeginInvoke((MethodInvoker)delegate { labelCollection.Labels[3].Text = details.OpenListSize.ToString(); });
             labelCollection.Labels[4].BeginInvoke((MethodInvoker)delegate { labelCollection.Labels[4].Text = details.ClosedListSize.ToString(); });
-            labelCollection.Labels[5].BeginInvoke((MethodInvoker)delegate { labelCollection.Labels[5].Text = details.PathFound ? details.Path.Length.ToString() : "?"; });
+            labelCollection.Labels[5].BeginInvoke((MethodInvoker)delegate { labelCollection.Labels[5].Text = details.PathFound ? $"{details.Path.Length}/{details.PathCost}" : "?/?"; });
         }
 
         private void BtnGo_Click(object sender, EventArgs e)

@@ -34,6 +34,15 @@
                 for (var y = 0; y < _grid.GetLength(1); y++)
                 {
                     _grid[x, y].Type = rand.Next(0, 10) > 5 ? CellType.Solid : CellType.Empty;
+                    if (_grid[x, y].Type != CellType.Empty) continue;
+
+                    var weightSpread = rand.Next(0, 10);
+                    if (weightSpread > 8)
+                        _grid[x, y].Weight = 3;
+                    else if (weightSpread > 6)
+                        _grid[x, y].Weight = 2;
+                    else
+                        _grid[x, y].Weight = 1;
                 }
             }
             SetStartAndEnd();
@@ -61,7 +70,8 @@
             _grid[x, y] = new Cell
             {
                 Coord = new Coord(x, y),
-                Type = type
+                Type = type,
+                Weight = GetCell(x, y)?.Weight ?? 0
             };
 
             SetStartAndEnd();

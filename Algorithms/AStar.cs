@@ -63,7 +63,8 @@
 
                 // Get the cost of the current node plus the extra step and heuristic
                 var hFromHere = GetH(thisNeighbour, Destination);
-                var neighbourCost = CurrentNode.G + 1 + hFromHere;
+                var cellWeight = Grid.GetCell(thisNeighbour.X, thisNeighbour.Y).Weight;
+                var neighbourCost = CurrentNode.G + cellWeight + hFromHere;
 
                 // Check if the node is on the open list already and if it has a higher cost path
                 var openListItem = _openList.FirstOrDefault(x => x.Id == GetExistingNode(true, thisNeighbour));
@@ -85,7 +86,7 @@
 
                 // If the neighbour node isn't on the open or closed list, add it
                 if (openListItem != null || closedListItem != null) return GetSearchDetails();
-                _openList.Add(new Node(Id++, CurrentNode.Id, thisNeighbour, CurrentNode.G + 1, hFromHere));
+                _openList.Add(new Node(Id++, CurrentNode.Id, thisNeighbour, CurrentNode.G + cellWeight, hFromHere));
                 Grid.SetCell(thisNeighbour.X, thisNeighbour.Y, Enums.CellType.Open);
             }
             else
@@ -113,6 +114,7 @@
             return new SearchDetails
             {
                 Path = Path?.ToArray(),
+                PathCost = GetPathCost(),
                 LastNode = CurrentNode,
                 DistanceOfCurrentNode = CurrentNode == null ? 0 : GetH(CurrentNode.Coord, Destination),
                 OpenListSize = _openList.Count,

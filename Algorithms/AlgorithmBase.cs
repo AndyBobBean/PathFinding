@@ -51,5 +51,16 @@
         {
             return Math.Abs(origin.X - destination.X) + Math.Abs(origin.Y - destination.Y);
         }
+
+        protected int GetPathCost()
+        {
+            if (Path == null) return 0;
+
+            var cost = 0;
+            foreach (var step in Path)
+                cost += Grid.GetCell(step.X, step.Y).Weight;
+
+            return cost;
+        }
     }
 }

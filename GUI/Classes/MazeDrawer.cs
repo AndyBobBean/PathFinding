@@ -43,22 +43,27 @@
                 {
                     for (var y = 0; y < VerticalCells; y++)
                     {
-                        var cellType = Grid.GetCell(x, y).Type;
-                        switch (cellType)
+                        var cell = Grid.GetCell(x, y);
+                        switch (cell.Type)
                         {
                             case CellType.Empty:
+                                switch (cell.Weight)
+                                {
+                                    case 2: g.FillRectangle(Brushes.LightGray, GetRectangle(x, y)); break;
+                                    case 3: g.FillRectangle(Brushes.Silver, GetRectangle(x, y)); break;
+                                }
                                 break;
                             case CellType.Solid:
                                 g.FillRectangle(Brushes.Black, GetRectangle(x, y));
                                 break;
                             case CellType.Path:
-                                g.FillRectangle(Brushes.Green, GetRectangle(x, y));
+                                g.FillRectangle(Brushes.Purple, GetRectangle(x, y));
                                 break;
                             case CellType.Open:
                                 g.FillRectangle(Brushes.LightSkyBlue, GetRectangle(x, y));
                                 break;
                             case CellType.Closed:
-                                g.FillRectangle(Brushes.LightGray, GetRectangle(x, y));
+                                g.FillRectangle(Brushes.LightSeaGreen, GetRectangle(x, y));
                                 break;
                             case CellType.Current:
                                 g.FillRectangle(Brushes.Crimson, GetRectangle(x, y));
@@ -70,7 +75,7 @@
                                 g.DrawString("B", GetFont(), Brushes.Blue, GetPoint(x, y));
                                 break;
                             default:
-                                throw new ArgumentOutOfRangeException("Unknown cell type: " + cellType);
+                                throw new ArgumentOutOfRangeException("Unknown cell type: " + cell);
                         }
 
                         g.DrawRectangle(Pens.Black, GetRectangle(x, y));

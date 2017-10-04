@@ -68,6 +68,7 @@
             return new SearchDetails
             {
                 Path = Path?.ToArray(),
+                PathCost = GetPathCost(),
                 LastNode = CurrentNode,
                 DistanceOfCurrentNode = CurrentNode == null ? 0 : GetManhattenDistance(CurrentNode.Coord, Destination),
                 OpenListSize = _q.Count,
