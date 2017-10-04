@@ -29,13 +29,17 @@
         public void Randomize(int seed)
         {
             var rand = new Random(seed);
+
+            // Iterate through the whole grid
             for (var x = 0; x < _grid.GetLength(0); x++)
             {
                 for (var y = 0; y < _grid.GetLength(1); y++)
                 {
+                    // Make each cell either solid or empty at random
                     _grid[x, y].Type = rand.Next(0, 10) > 5 ? CellType.Solid : CellType.Empty;
                     if (_grid[x, y].Type != CellType.Empty) continue;
 
+                    // If it's empty, randomly give the path a weight
                     var weightSpread = rand.Next(0, 10);
                     if (weightSpread > 8)
                         _grid[x, y].Weight = 3;

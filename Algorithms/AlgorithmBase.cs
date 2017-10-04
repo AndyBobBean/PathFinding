@@ -30,6 +30,11 @@
 
         public abstract SearchDetails GetPathTick();
 
+        /// <summary>
+        /// Find the coords that are above, below, left, and right of the current cell, assuming they are valid
+        /// </summary>
+        /// <param name="current"></param>
+        /// <returns>The valid coords around the current cell</returns>
         protected virtual IEnumerable<Coord> GetNeighbours(Node current)
         {
             var neighbours = new List<Cell>
@@ -47,11 +52,21 @@
 
         protected static bool CoordsMatch(Coord a, Coord b) => a.X == b.X && a.Y == b.Y;
 
+        /// <summary>
+        /// Get the total blocks horizontally and vertically from one coord to another
+        /// </summary>
+        /// <param name="origin"></param>
+        /// <param name="destination"></param>
+        /// <returns>Distance in blocks</returns>
         protected static int GetManhattenDistance(Coord origin, Coord destination)
         {
             return Math.Abs(origin.X - destination.X) + Math.Abs(origin.Y - destination.Y);
         }
 
+        /// <summary>
+        /// Get the cost of the path between A and B
+        /// </summary>
+        /// <returns>Cost of the path or 0 if no path has been found</returns>
         protected int GetPathCost()
         {
             if (Path == null) return 0;

@@ -61,7 +61,7 @@
                     return GetSearchDetails();
                 }
 
-                // Get the cost of the current node plus the extra step and heuristic
+                // Get the cost of the current node plus the extra step weight and heuristic
                 var hFromHere = GetH(thisNeighbour, Destination);
                 var cellWeight = Grid.GetCell(thisNeighbour.X, thisNeighbour.Y).Weight;
                 var neighbourCost = CurrentNode.G + cellWeight + hFromHere;

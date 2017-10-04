@@ -21,11 +21,15 @@
         {
             InitializeComponent();
 
+            // Timer that dictates how quick the path steps are calculated
             _pathTimer = new System.Timers.Timer(Delay);
             _pathTimer.Elapsed += PathTimer_Elapsed;
+
+            // Sound object
             _soundManager = new Sounds(Properties.Settings.Default.EnableSounds);
             _soundManager.LoadSounds();
 
+            // Array used to address the statistics labels
             _labels[0] = new LabelCollection
             {
                 AlgorithmId = 0,
@@ -50,14 +54,19 @@
             InitialiseMaze();
         }
 
+        /// <summary>
+        /// Set up a maze and initialise the algorithm variables
+        /// </summary>
         private void InitialiseMaze()
         {
             _pathTimer.Stop();
 
+            // Generate mazes until one if made that has a valid path between A and B
             var workingSeed = FindWorkingSeed();
             while (workingSeed == 0)
                 workingSeed = FindWorkingSeed();
 
+            // Set/reset the algorithm settings and draw the maze
             _currentAlgorithm = -1;
             _mazeDrawer = new MazeDrawer(pbMaze, workingSeed);
             _algorithms = new AlgorithmBase[] { new Dijkstra(_mazeDrawer.Grid), new AStar(_mazeDrawer.Grid), new BreadthFirst(_mazeDrawer.Grid), new DepthFirst(_mazeDrawer.Grid) };
@@ -65,6 +74,10 @@
             _mazeDrawer.Draw();
         }
 
+        /// <summary>
+        /// Generate mazes until one is found that has a valid path between A and B
+        /// </summary>
+        /// <returns>The seed of the valid maze</returns>
         private int FindWorkingSeed()
         {
             var testMazeDrawer = new MazeDrawer(pbMaze);
@@ -78,13 +91,21 @@
             return progress.PathFound ? testMazeDrawer.Seed : 0;
         }
 
+        /// <summary>
+        /// Get the next step of the path search
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PathTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
             _pathTimer.Stop();
             var resetTimer = false;
 
+            // Do the next step in the path
             var searchStatus = _algorithms[_currentAlgorithm].GetPathTick();
             StatsUpdate(searchStatus);
+
+            // If the path is found, draw the path, otherwise draw the updated search
             if (searchStatus.PathFound)
             {
                 BuildPath(searchStatus);
@@ -100,6 +121,10 @@
             if (resetTimer) _pathTimer.Start();
         }
 
+        /// <summary>
+        /// Draw the found path onto the maze
+        /// </summary>
+        /// <param name="details"></param>
         private void BuildPath(SearchDetails details)
         {
             for (var i = 1; i < details.Path.Length - 1; i++)
@@ -114,6 +139,10 @@
             _soundManager.PlaySound(50);
         }
 
+        /// <summary>
+        /// Update the statistics labels based on the current algorithm
+        /// </summary>
+        /// <param name="details"></param>
         private void StatsUpdate(SearchDetails details)
         {
             var labelCollection = _labels.First(x => x.AlgorithmId == _currentAlgorithm);
@@ -126,6 +155,11 @@
             labelCollection.Labels[5].BeginInvoke((MethodInvoker)delegate { labelCollection.Labels[5].Text = details.PathFound ? $"{details.Path.Length}/{details.PathCost}" : "?/?"; });
         }
 
+        /// <summary>
+        /// Set the next search algorithm running
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnGo_Click(object sender, EventArgs e)
         {
             _currentAlgorithm++;
@@ -135,6 +169,11 @@
             _pathTimer.Start();
         }
 
+        /// <summary>
+        /// Generate a new maze
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnMaze_Click(object sender, EventArgs e)
         {
             InitialiseMaze();
