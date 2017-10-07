@@ -15,16 +15,39 @@
             _enableSound = enableSound;
         }
 
-        public void LoadSounds()
+		public void LoadSounds()
+		{
+			for (var i = 0; i < TotalSounds; i++)
+			{
+				_sound[i] = File.OpenRead($"Sounds" + GetSystemSlashPath() + "Beep" + i + ".wav");
+			}
+			_sound[TotalSounds] = File.OpenRead("Sounds" + GetSystemSlashPath() + "Ding.wav");
+		}
+
+        private string GetSystemSlashPath()
         {
-            for (var i = 0; i < TotalSounds; i++)
+            switch (Environment.OSVersion.Platform)
             {
-                _sound[i] = File.OpenRead($"Sounds\\Beep{i}.wav");
+                case PlatformID.Unix:
+                    return "/";
+                case PlatformID.MacOSX:
+                    return "/";
+                case PlatformID.Xbox:
+                    return "\\";
+                case PlatformID.WinCE:
+					return "\\";
+                case PlatformID.Win32S:
+					return "\\";
+                case PlatformID.Win32Windows:
+					return "\\";
+                case PlatformID.Win32NT:
+					return "\\";
+                default :
+                    return "\\";
             }
-            _sound[TotalSounds] = File.OpenRead("Sounds\\Ding.wav");
         }
 
-        private void CreateSoundFiles()
+		private void CreateSoundFiles()
         {
             const int min = 300;
             const int max = 1000;
