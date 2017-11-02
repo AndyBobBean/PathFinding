@@ -249,11 +249,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Algorithms\Algorithms.csproj">
-      <Project>{c8a012fa-412e-4e1f-a884-1f11135b3ca3}</Project>
+      <Project>{ad2a53a4-e20e-408d-87a2-6ad9f290f573}</Project>
       <Name>Algorithms</Name>
     </ProjectReference>
     <ProjectReference Include="..\Grid\Grid.csproj">
-      <Project>{8e552fd9-a8a5-4d96-9324-27aed0a115d8}</Project>
+      <Project>{be67fa54-02b0-4350-843a-76be0fb42ca2}</Project>
       <Name>Grid</Name>
     </ProjectReference>
   </ItemGroup>
