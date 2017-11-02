@@ -27,6 +27,3 @@ DEPTH-FIRST
 
 Searches all the child nodes a starting point, examining each branch as far as it will go either to the destination 
 or a dead end. If a dead end is reaches, the branch is traced back to the nearest node with unexplored children and continues.
-
-## Compatibility
-This project is supported by Visual Studio 2017 only, as it uses .NET Core XML files which Visual Studio 2015 does not support.
