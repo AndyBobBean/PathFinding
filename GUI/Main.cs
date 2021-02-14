@@ -62,7 +62,7 @@
             _pathTimer.Stop();
 
             // Generate mazes until one if made that has a valid path between A and B
-            var workingSeed = FindWorkingSeed();
+            var workingSeed = 0;
             while (workingSeed == 0)
                 workingSeed = FindWorkingSeed();
 
